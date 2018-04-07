@@ -3,16 +3,35 @@ package com.github.mmalaquiasdev.demoverboshttp.api;
 import com.github.mmalaquiasdev.demoverboshttp.dominio.Usuario;
 import com.github.mmalaquiasdev.demoverboshttp.dominio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
-public class UsuarioApi {
+class UsuarioApi {
 
     @Autowired
     private UsuarioRepositorio repositorio;
+
+    @PostConstruct
+    private void criarMassaDados() {
+        Usuario malaquias = Usuario.builder()
+                .nome("Malaquias")
+                .senha("123456")
+                .email("mateusmalaquiasdev@outlook.com")
+                .build();
+
+        Usuario java = Usuario.builder()
+                .nome("Java")
+                .senha("8a1248")
+                .email("java@t.com")
+                .build();
+
+        salvar(malaquias);
+        salvar(java);
+    }
 
     @GetMapping
     public Iterable<Usuario> pesquisar(){
@@ -34,6 +53,7 @@ public class UsuarioApi {
 
     @PutMapping("{id}")
     public Usuario atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
+        usuario.setId(id);
         return repositorio.save(usuario);
     }
 
