@@ -20,11 +20,10 @@ public class UsuarioServico {
     }
 
     public Usuario pesquisarPorId(Long id) {
-        Usuario usuarioVazio = Usuario.builder().build();
-
+        verificarUsuario(id);
         return repositorio
                 .findById(id)
-                .orElse(usuarioVazio);
+                .get();
     }
 
     public Usuario salvar(Usuario novoUsuario) {
