@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "ddc5f2ab-3744-4834-81a9-33a338931170",
+		"name": "demo-status-code",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "STATUS 200 OK",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				},
+				"description": "STATUS 200 OK"
+			},
+			"response": []
+		},
+		{
+			"name": "STATUS 201 CREATED",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Sou Java\",\n\t\"senha\": \"sou123\",\n\t\"email\": \"soujava@t.com.br\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						""
+					]
+				},
+				"description": "STATUS 201 CREATED"
+			},
+			"response": []
+		},
+		{
+			"name": "STATUS 202 ACCPETED",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Doc\",\n\t\"senha\": \"sou123\",\n\t\"email\": \"soujava@t.com.br\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/1/documentos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"1",
+						"documentos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STATUS 400 BADREQUEST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Sou Java\",\n\t\"senha\": \"sou123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STATUS 404 NOT FOUND",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/12232",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"12232"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "STATUS 500 ERROR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Sou Java\",\n\t\"senha\": \"sou123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/erro/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						"erro",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
