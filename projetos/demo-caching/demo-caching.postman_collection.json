@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "d2678493-d812-466f-ba78-e78ade936615",
+		"name": "demo-caching",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Pesquisar TODOS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Salvar usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Sou um usuário cache\",\n\t\"senha\": \"sou123\",\n\t\"email\": \"soujava@t.com.br\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/usuarios/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuarios",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
